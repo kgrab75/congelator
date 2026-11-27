@@ -1,0 +1,41 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+.nx/cache/
+.nx/workspace-data/
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+*.local
+compose.production.local.yaml
+
+# Infrastructure state and data
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+backups/
+*.dump
+*.sql.gz
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
