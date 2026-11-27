@@ -1,0 +1,38 @@
+name: Bug report
+description: Report unexpected behavior in Congelator.
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For suspected security vulnerabilities, use [private vulnerability reporting](https://github.com/kgrab75/congelator/security/advisories/new).
+        Keep credentials, personal data, and private infrastructure details out of public reports and attachments.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use synthetic data and include any relevant preconditions.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Version and environment
+      description: Include the release or commit and the browser or operating system if relevant.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Add relevant screenshots or logs after removing private information.

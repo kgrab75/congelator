@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose a user-facing capability or improvement.
+type: Feature
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Problem and objective
+      description: Explain who needs the change and what outcome they need.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Describe the proposed behavior and the affected user journeys.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Describe the observable outcomes that would satisfy this request.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: Identify relevant tests, including authorization, tenant isolation, and accessibility where applicable.
+  - type: textarea
+    id: references
+    attributes:
+      label: Dependencies and references
+      description: Link related issues, product requirements, and architecture decisions.
