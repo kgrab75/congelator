@@ -10,7 +10,9 @@ Données minimales, conversations personnelles par foyer, export/suppression ava
 
 ## Observabilité progressive
 
-V0.1 Pino JSON + corrélation request/run/job, health/readiness, OpenTelemetry instrumenté avec export configurable ; aucune collecte intégrale des prompts/tool args en prod par défaut. Première prod : métriques Prometheus/Grafana selon ressources ; uptime monitor externe au serveur (Uptime Kuma local ne suffit pas pour coupure). Ensuite Alloy, Loki, Tempo et éventuellement Sentry. Suivre latence p50/p95/p99, erreurs, DB/queue lag, retries, CPU/RAM/disque, backups, IA usage. Health checks sans secrets. Limiter rétention et stockage ; accès dashboards privé. Corréler trace et run sans données sensibles.
+The V0.1 baseline is specified in [`OBS-001`](ROADMAP.md#v01-backlog). Use Pino JSON logs, a configurable OpenTelemetry exporter, and redaction for sensitive fields. Correlate requests and extend correlation to AI runs and jobs when those features exist. Production defaults exclude full prompts and tool arguments. Keep health and readiness responses free of secrets.
+
+For the first production deployment, add Prometheus and Grafana as resources permit and monitor uptime from outside the host. Alloy, Loki, Tempo, and optionally Sentry can follow. Track latency percentiles, errors, database and queue lag, retries, resource use, backups, and AI usage. Metric thresholds and retention need validation before production. Keep dashboards private and exclude sensitive data from correlation identifiers and telemetry.
 
 ## Quotas IA
 

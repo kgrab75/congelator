@@ -6,7 +6,9 @@ Production initiale auto-hébergée sur un serveur existant, Docker Compose et N
 
 ## Nommage
 
-Projet Compose : `congelator`. Images : `congelator-web`, `congelator-api`, `congelator-worker` (préfixées par le registre et le propriétaire réels au moment de publier). Base PostgreSQL : `congelator`, isolée par environnement. Le domaine public reste à choisir.
+Projet Compose : `congelator`. Images : `congelator-web`, `congelator-api`, `congelator-worker` (préfixées par le registre et le propriétaire réels au moment de publier). Base PostgreSQL : `congelator`, isolée par environnement.
+
+See [product questions](PRODUCT.md#product-and-operational-questions) for public domain name availability.
 
 ## Local et déploiement
 
