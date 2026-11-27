@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a vulnerability
+    url: https://github.com/kgrab75/congelator/security/advisories/new
+    about: Report suspected security vulnerabilities privately to the maintainer.

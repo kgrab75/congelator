@@ -1,0 +1,38 @@
+name: Technical task
+description: Propose engineering, maintenance, or proof-of-concept work.
+type: Task
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective and context
+      description: Explain the problem or the question the proof of concept should answer.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Describe the deliverables or evidence that will establish completion.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: List the proposed checks, including authorization and tenant isolation where applicable.
+  - type: textarea
+    id: references
+    attributes:
+      label: Dependencies and references
+      description: Link related issues, specifications, and architecture decisions.
