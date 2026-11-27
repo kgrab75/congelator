@@ -27,3 +27,8 @@ V0.3/V1.0 : BrowserSpeechRecognitionProvider via Web Speech API, vérifier suppo
 ## Évaluation et coûts
 
 Datasets synthétiques versionnés : compréhension, ambiguïtés, références, quantité, lots, multi-actions, intents futurs, confirmations, prompt injection, panne fournisseur, non-invention de dates. Évaluer résultat métier, pas seulement séquence d’appels. Tests fake indépendants, évaluations réelles plafonnées ; voir TESTING et SECURITY. Aucun fait alimentaire ou résultat de mutation généré sans source métier. Mesurer tokens, coûts, latence, version de prompt et modèle sans journaliser inutilement le contenu.
+
+## Open implementation questions
+
+- **V0.3** — Define recovery for abandoned runs and `PendingAction` records left in `EXECUTING`, including how to distinguish a committed command from an interrupted attempt. Specify whether and how SSE resumes from an event cursor or retrieves persisted status and results. Verify outcomes after a crash or network interruption, after a household switch, and after permission revocation. Select model profiles and initial limits after evaluation.
+- **V0.3 and before V1.0** — Use the [product dictation support matrix](PRODUCT.md#product-and-operational-questions) to verify device and browser support and text fallback. Before processing real user conversations, verify provider retention and tracing behavior. Finalize release retention and privacy rules with [Security](SECURITY.md).

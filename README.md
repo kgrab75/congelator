@@ -32,7 +32,7 @@ Business rules and authorization remain deterministic and independent of the lan
 
 ## Documentation
 
-The initial design documents are in French; the coding-agent instructions and bootstrap prompt are in English.
+The initial design documents were written in French. New public documentation is written in English.
 
 - [Product specification](docs/PRODUCT.md)
 - [Architecture](docs/ARCHITECTURE.md)
@@ -46,8 +46,8 @@ The initial design documents are in French; the coding-agent instructions and bo
 
 ## Development
 
-The first milestone is BOOT-001: initialize and verify the monorepo. Setup commands will be documented after the initial implementation has been tested. See [AGENTS.md](AGENTS.md) and the [bootstrap prompt](docs/PROMPT_BOOTSTRAP.md) for the development workflow.
+`BOOT-001` is the first implementation ticket and covers initializing and verifying the monorepo. Setup commands will be documented after verification. See the [contribution guide](CONTRIBUTING.md) for the development workflow, [AGENTS.md](AGENTS.md) for coding-agent rules, and the [bootstrap prompt](docs/PROMPT_BOOTSTRAP.md) for the ticket scope.
 
 This project uses AI-assisted development with human review, explicit architectural decisions and automated verification.
 
-No production credentials, deployment-specific configuration or real user data belong in this repository. No open-source license has been selected at this stage.
+No production credentials, deployment-specific configuration or real user data belong in this repository.

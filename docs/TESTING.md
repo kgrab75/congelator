@@ -21,7 +21,7 @@ it('should prevent negative stock');
 it('should preserve unknown quantity after partial consumption');
 it('should preserve total quantity after moving stock');
 it('should prevent concurrent overconsumption');
-it('should persist stock movement and outbox atomically');
+it('should persist stock state and movement atomically');
 it('should not execute the same command twice');
 it('should reject an expired confirmation');
 it('should revalidate permissions before execution');
@@ -30,6 +30,8 @@ it('should not leak tenant context between pooled connections');
 it('should not modify stock for a future meal');
 it('should not claim success after a failed tool execution');
 ```
+
+When [the Transactional Outbox is introduced](ARCHITECTURE.md#stock-transactions-and-job-delivery), verify that relevant outbox entries commit or roll back with the corresponding business changes and movements.
 
 Parcours E2E : inscription, foyer, invitation, changement foyer, congélateur, ajout/consommation/déplacement/annulation, historique, assistant ambigu et confirmation, reprise, alertes, repas, suppression compte. Ajouter tests de migration à partir de base vide et version précédente, restauration, worker retries et doublons. IA réelle : données synthétiques, aucune donnée utilisateur, budget limité. Les tests de sécurité backend restent déterministes.
 

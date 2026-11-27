@@ -3,7 +3,7 @@
 - Version : 1.1 (cadrage consolidé)
 - Date : 27 novembre 2026
 - Statut : décisions de Product Discovery validées ; spécification à relire avant implémentation
-- Nom commercial : Congelator
+- Application name: Congelator
 - Cible : MVP public V1.0, précédé de versions privées utilisables
 
 ## 1. Objet du document
@@ -284,7 +284,7 @@ Accès complémentaires : foyer et membres, équipements, profil, préférences,
 | V0.6 — Ouverture | Quotas, coûts, monitoring, revue de sécurité, export/suppression, sauvegardes, accessibilité et performance : validation finale et compléments |
 | V1.0 — MVP public | Ensemble des fonctionnalités validées, dont dictée vocale sur navigateurs compatibles, sous réserve des critères de qualité et de sécurité |
 
-Les dates et la structure nécessaires aux futurs modules sont anticipées dès les fondations ; l'automatisation complète de la conservation arrive en V0.4. Les tests, la sécurité, l'accessibilité et la confidentialité ne sont pas reportés à V0.6. Chaque jalon est vérifiable et utilisable dans son périmètre. Une version intermédiaire ne constitue pas un lancement public.
+The [roadmap](ROADMAP.md) defines implementation milestones. Foundation design accounts for the dates and structure that later modules will use, and preservation automation arrives in V0.4. Testing, security, accessibility, and privacy start during the foundations. Each milestone is verifiable and usable within its scope. Public release starts at V1.0.
 
 ### Hors MVP V1.0
 
@@ -304,20 +304,13 @@ Moteurs de dictée backend OpenAI et Whisper, conversation vocale temps réel, s
 
 ## 16. Points ouverts et prochaines décisions
 
-### Arbitrages fonctionnels et opérationnels
+### Product and operational questions
 
-- Nom du produit et identité visuelle.
-- Gestion et modération des références commerciales globales, responsabilités et provenance des données.
-- Invitation des membres, durée de validité, suppression de comptes et sort des foyers dont le propriétaire part.
-- Politique détaillée pour les consommations multi-lots ambiguës (proposition : FEFO lorsque l'utilisateur demande une sélection et que le lot effectivement utilisé peut être identifié ; ne pas supposer un lot consommé si plusieurs sont plausibles).
-- Seuils des actions sensibles/de masse, durée et conditions d'annulation, portée des corrections d'un autre membre.
-- Sources, couverture, règles de calcul, traitement des dates partielles, température et conditions de conservation réelles ; aucun jeu de durées alimentaires n'est validé ici.
-- Suivi minimal des sorties pour décongélation, sans introduire le module avancé prévu après V1.0.
-- Règles d'apprentissage et de rétention de l'historique conversationnel, notamment en cas de changement de foyer.
-- Seuils et fréquence de notification par défaut, heure du récapitulatif, comportement sur dates imprécises.
-- Gestion des restrictions alimentaires de plusieurs convives, données de composition non vérifiées et confidentialité des allergies.
-- Objectifs mesurables : temps nécessaire à une opération, taux de clarification et de correction, fiabilité des stocks, coût IA par foyer, adoption et réduction du gaspillage.
+- **V0.1** — Decide visual identity and the invitation flow, including invitation lifetime.
+- **V0.2** — Define global catalog governance, including who can create, validate, correct, or deduplicate entries and what provenance to record. Define how to break down previously untracked packaging while preserving quantity and history, how to handle ambiguous multi-lot consumption, and what minimal thaw tracking includes. FEFO remains a proposal when the user asks for a selection and the lot actually used can be identified. Define the undo window, conditions for undo, and who can correct another member's movements.
+- **V0.3** — Define sensitive and bulk-action thresholds, rules for learning and retaining conversation history, and handling of conversation state when users switch households. Establish the supported dictation platforms and release test matrix.
+- **V0.4** — Approve preservation sources, coverage, calculation and partial-date handling, and how rules account for temperature and storage conditions. Decide notification thresholds, frequency, digest time, and handling of imprecise dates for reminders.
+- **V0.5** — Define how to combine restrictions across diners, handle unverified ingredient or allergen information, and protect allergy data. The exclusions specified in FR-13 and FR-21 still apply.
+- **V0.6, before V1.0** — Check commercial trademark availability and choose an available public domain name. Define account deletion, what happens to a household when its owner's account is deleted, and retention or anonymization of shared history. Set measurable targets for operation time, clarification and correction rates, inventory reliability, AI cost per household, adoption, and reduction in food waste.
 
-### Décisions techniques
-
-Les décisions TA-001 à TA-014 sont consignées dans `ARCHITECTURE.md` et `adr/`. La première production peut être hébergée sur le serveur personnel, sous réserve des vérifications de sécurité et de capacité de `INFRASTRUCTURE.md`. Les détails de mise en œuvre et les points ouverts restent à valider avant les fonctionnalités concernées. Le référentiel alimentaire et les règles de modération du catalogue demeurent des arbitrages fonctionnels ouverts.
+The [roadmap](ROADMAP.md#outstanding-decisions-and-target-milestones) indexes the remaining decisions by milestone. See the [ADRs](adr/README.md) for validated technical choices and [infrastructure](INFRASTRUCTURE.md) for hosting and release prerequisites.

@@ -68,10 +68,14 @@ Contexts : Identity, Households, Freezers, Catalog, Inventory, Preservation, Ass
 
 Routes `/households/$householdId/...` ; query keys avec identité/contexte ; purger les caches privés à la déconnexion et au changement de compte, invalider après mutation. TanStack Form pour formulaires ; état local React, store global uniquement si besoin justifié. Design tokens, composants shadcn, stories et états vide/erreur/chargement. Orval génère types/hooks/mocks à partir du contrat NestJS ; CI vérifie leur fraîcheur. SSE utilise un contrat versionné et un client dédié. Aucun import de DTO internes, entités ou services backend. i18next et Intl ; français initial. PWA : cache statique seulement par défaut, pas de données privées ou mutations offline. UI IA via registre fermé, jamais HTML/JS arbitraire.
 
-## Exécution des jobs
+## Stock transactions and job delivery
 
-Worker dédié introduit lorsque nécessaire. Outbox écrite atomiquement avec mutation et audit ; relay avec verrouillage et reprise, livraison au moins une fois ; consommateurs idempotents, retries bornés, échecs inspectables. Identifiants de déduplication persistés ; pas de données personnelles inutiles dans Redis. Vérification des dates déterministe, notifications revalidées à l’envoi, fuseaux horaires et heures silencieuses.
+V0.2 introduces transactional stock changes, immutable movements, idempotency, and domain events. V0.4 introduces the Transactional Outbox with BullMQ, Redis, and the independent worker. A concrete requirement for reliable asynchronous delivery can bring the Outbox forward. Once the Outbox is in use, persist each relevant event in the same transaction as the corresponding business change and its audit record when applicable.
 
-## POC V0.1 et décisions ouvertes
+The relay uses locking and supports recovery. Delivery is at least once, and consumers are idempotent with persistent deduplication keys, bounded retries, and inspectable failures. Keep unnecessary personal data out of Redis. Calculate preservation dates deterministically and revalidate notifications before sending, taking time zones and quiet hours into account.
 
-Valider versions stables compatibles Node/pnpm/Nx/NestJS/Vite/MikroORM/Vitest/SWC/Better Auth ; authentification sur même origine, migrations séparées, RLS transactionnel avec pool et worker ; génération OpenAPI ; compilation et tests de frontières ; PWA installable. Épingler les versions et images après vérification, pas de numéros inventés. Le détail des schémas, bibliothèques Decimal, fournisseur mail, métriques, et identité visuelle reste ouvert. Toute divergence structurante nécessite ADR et validation humaine.
+## Foundation POCs and open decisions
+
+Follow the [V0.1 backlog](ROADMAP.md#v01-backlog) for the division between the database and authenticated RLS POCs. Verify compatibility of stable Node, pnpm, Nx, NestJS, React, Vite, and Vitest releases in `BOOT-001`. Verify MikroORM, SWC, Better Auth, and OpenAPI generation in the relevant follow-up tickets, and verify PWA installability in V0.1. Pin versions and images after verification.
+
+See the [open data model questions](DATA_MODEL.md#open-data-model-questions) for schema and decimal decisions. Before V0.4, validate how the worker obtains its restricted tenant context, including pooled connections, and select an email provider. The [roadmap](ROADMAP.md#outstanding-decisions-and-target-milestones) indexes open decisions by milestone. A substantial architecture change requires an ADR and human approval.
